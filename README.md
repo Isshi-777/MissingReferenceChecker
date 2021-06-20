@@ -17,34 +17,41 @@ MissingReferenceをチェックする処理
 
  
 **下記のようなログが表示される(実際にはJsonは整形されていない！)**  
-普通のメッセージ＋Jsonの構成
+普通のメッセージ（下記の最初の１行）＋Jsonの構成
 ```
 MissingReferenceChecker(Prefab) : SamplePrefab 
  {
-    "components": [
+    "gameObjectDetails": [                      // MissingReferenceが発生しているGameObjectのリスト
         {
-            "objectName": "SamplePrefab",
-            "componentName": "Image",
-            "properties": [
-                "m_Sprite"
+            "rootPath": "SamplePrefab",         // GameObjectのRootまでのPath（※このオブジェクトはRootObjectなので名前のみ）
+            "components": [                     // MissingReferenceが発生しているコンポーネントのリスト
+                {
+                    "componentName": "Image",   // コンポーネント名
+                    "properties": [             // MissingReferenceが発生しているプロパティ名のリスト
+                        "m_Sprite"
+                    ]
+                },
+                {
+                    "componentName": "Test",
+                    "properties": [
+                        "spriteA",
+                        "spriteList.Array.data[1]",
+                        "testParam.sprite",
+                        "testParam.spriteList.Array.data[0]",
+                        "testParam.spriteList.Array.data[2]"
+                    ]
+                }
             ]
         },
         {
-            "objectName": "SamplePrefab",
-            "componentName": "Test",
-            "properties": [
-                "spriteA",
-                "spriteList.Array.data[1]",
-                "testParam.sprite",
-                "testParam.spriteList.Array.data[0]",
-                "testParam.spriteList.Array.data[2]"
-            ]
-        },
-        {
-            "objectName": "Image2",
-            "componentName": "Image",
-            "properties": [
-                "m_Sprite"
+            "rootPath": "SamplePrefab/Image2",
+            "components": [
+                {
+                    "componentName": "Image",
+                    "properties": [
+                        "m_Sprite"
+                    ]
+                }
             ]
         }
     ]
