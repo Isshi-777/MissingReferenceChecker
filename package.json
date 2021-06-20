@@ -3,5 +3,12 @@
   "displayName": "MissingReferenceChecker",
   "version": "1.0.0",
   "unity": "2020.3",
-  "author": "Isshi-777"
+  "author": "Isshi-777",
+  "samples": [
+      {
+            "displayName": "Sample",
+            "description": "Sample",
+            "path": "Samples~/Sample"
+      }
+  ]
 }
