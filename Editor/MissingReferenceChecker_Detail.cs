@@ -16,16 +16,39 @@ namespace Isshi777
             /// <summary>
             /// コンポーネント情報リスト
             /// </summary>
-            public List<ComponentInfo> components;
+            public List<GameObjectDetail> gameObjectDetails;
 
             /// <summary>
             /// Missingが無いか
             /// </summary>
-            public bool IsNotMissing => this.components.Count == 0;
+            public bool IsNotMissing => this.gameObjectDetails.Count == 0;
 
             public MissingReferenceDetail()
             {
-                this.components = new List<ComponentInfo>();
+                this.gameObjectDetails = new List<GameObjectDetail>();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [System.Serializable]
+        public class GameObjectDetail
+        {
+            /// <summary>
+            /// RootまでのPath
+            /// </summary>
+            public string rootPath;
+
+            /// <summary>
+            /// コンポーネント情報リスト
+            /// </summary>
+            public List<ComponentDetail> components;
+
+            public GameObjectDetail(string rootPath)
+            {
+                this.rootPath = rootPath;
+                this.components = new List<ComponentDetail>();
             }
         }
 
@@ -33,13 +56,8 @@ namespace Isshi777
         /// コンポーネント情報
         /// </summary>
         [System.Serializable]
-        public class ComponentInfo
+        public class ComponentDetail
         {
-            /// <summary>
-            /// コンポーネントがついているオブジェクト名
-            /// </summary>
-            public string objectName;
-
             /// <summary>
             /// コンポーネント名
             /// </summary>
@@ -50,9 +68,8 @@ namespace Isshi777
             /// </summary>
             public List<string> properties;
 
-            public ComponentInfo(string objectName, string componentName)
+            public ComponentDetail(string componentName)
             {
-                this.objectName = objectName;
                 this.componentName = componentName;
                 this.properties = new List<string>();
             }

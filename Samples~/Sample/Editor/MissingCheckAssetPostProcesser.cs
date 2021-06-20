@@ -61,7 +61,7 @@ namespace Isshi777
                 var d = MissingReferenceChecker.IsExistMissingReference(obj);
                 if (d != null && !d.IsNotMissing)
                 {
-                    detail.components.AddRange(d.components);
+                    detail.gameObjectDetails.AddRange(d.gameObjectDetails);
                 }
             }
 
