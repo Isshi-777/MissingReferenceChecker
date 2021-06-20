@@ -30,7 +30,7 @@ namespace Isshi777
         }
 
         /// <summary>
-        /// 
+        /// GameObject‚Ìî•ñ
         /// </summary>
         [System.Serializable]
         public class GameObjectDetail
