@@ -13,7 +13,7 @@ namespace Isshi777
         /// </summary>
         /// <param name="obj">オブジェクト</param>
         /// <returns>Missing情報</returns>
-        public static MissingReferenceDetail IsExistMissingReference(GameObject obj)
+        public static MissingReferenceDetail CheckMissingReference(GameObject obj)
         {
             if (obj == null)
             {

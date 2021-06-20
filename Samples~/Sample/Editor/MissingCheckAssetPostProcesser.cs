@@ -40,7 +40,7 @@ namespace Isshi777
         /// </summary>
         private static void CheckPrefabMissingReference(GameObject prefab)
         {
-            var detail = MissingReferenceChecker.IsExistMissingReference(prefab);
+            var detail = MissingReferenceChecker.CheckMissingReference(prefab);
             if (detail != null && !detail.IsNotMissing)
             {
                 Debug.LogWarning($" MissingReferenceChecker(Prefab): {prefab.name} \n {JsonUtility.ToJson(detail)} ");
@@ -58,7 +58,7 @@ namespace Isshi777
             var rootObjcts = scene.GetRootGameObjects();
             foreach (var obj in rootObjcts)
             {
-                var d = MissingReferenceChecker.IsExistMissingReference(obj);
+                var d = MissingReferenceChecker.CheckMissingReference(obj);
                 if (d != null && !d.IsNotMissing)
                 {
                     detail.gameObjectDetails.AddRange(d.gameObjectDetails);
